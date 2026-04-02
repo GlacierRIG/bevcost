@@ -20,6 +20,7 @@ The main features include:
 
 """
 
+import sys
 import pandas as pd
 import math
 from bisect import bisect_right
@@ -29,7 +30,8 @@ import matplotlib.ticker as tkr
 try:
     from matplotlib_inline.backend_inline import set_matplotlib_formats
 except ImportError:
-    pass
+    def set_matplotlib_formats(*args, **kwargs):
+        pass
 import numpy as np
 import numpy_financial as nf
 from collections import defaultdict
@@ -68,12 +70,12 @@ class FleetCell():
     capex_dates : dict, optional
         Dictionary containing the start and end dates for any CAPEX cost
         DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-        and the corresponding values should be date strings in format YYYY/MM/DD.
+        and the corresponding values should be date strings in format YYYY-MM-DD.
         Required to perform the CAPEX analyses.
     opex_dates : dict, optional
         Dictionary containing the start and end dates for any OPEX cost
         DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-        and the corresponding values should be date strings in format YYYY/MM/DD.
+        and the corresponding values should be date strings in format YYYY-MM-DD.
         Required to perform the OPEX analyses.
     production_sched : pd.DataFrame or dict, optional
         Pandas DataFrame or dict containing the tonnes of material produced 
@@ -324,12 +326,12 @@ class FleetCell():
         capex_dates : dict, optional
             Dictionary containing the start and end dates for any CAPEX cost
             DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-            and the corresponding values should be date strings in format YYYY/MM/DD.
+            and the corresponding values should be date strings in format YYYY-MM-DD.
             Required to perform the CAPEX analyses.
         opex_dates : dict, optional
             Dictionary containing the start and end dates for any OPEX cost
             DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-            and the corresponding values should be date strings in format YYYY/MM/DD.
+            and the corresponding values should be date strings in format YYYY-MM-DD.
             Required to perform the OPEX analyses.
         production_sched : pd.DataFrame or dict, optional
             Pandas DataFrame or dict containing the tonnes of material produced 
@@ -409,7 +411,7 @@ class FleetCell():
             return inp_var
         
         else:
-            print(f"TypeError converting FleetCell argument to DataFrame: {inp_var}")
+            print(f"TypeError converting FleetCell argument to DataFrame: {inp_var}", file=sys.stderr)
     
     def energy_consumption_analysis(self):
         """Calculate the energy consumption of the fleet."""
@@ -694,12 +696,12 @@ class InfraCell():
     capex_dates : dict, optional
         Dictionary containing the start and end dates for any CAPEX cost
         DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-        and the corresponding values should be date strings in format YYYY/MM/DD.
+        and the corresponding values should be date strings in format YYYY-MM-DD.
         Required to perform the CAPEX analyses.
     opex_dates : dict, optional
         Dictionary containing the start and end dates for any OPEX cost
         DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-        and the corresponding values should be date strings in format YYYY/MM/DD.
+        and the corresponding values should be date strings in format YYYY-MM-DD.
         Required to perform the OPEX analyses.
     info : str
         Description of the object class.
@@ -792,7 +794,7 @@ class InfraCell():
         subscription is paid (options include: monthly). The second is the 
         "dates" defining the start and end dates for the BAAS subscription.
         This is defined as a dictionary with the keys 'start date' and 'end date'
-        and the corresponding values should be date strings in format YYYY/MM/DD.
+        and the corresponding values should be date strings in format YYYY-MM-DD.
     
     Keys in the input dictionary: **facility_params**
     
@@ -896,12 +898,12 @@ class InfraCell():
         capex_dates : dict, optional
             Dictionary containing the start and end dates for any CAPEX cost
             DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-            and the corresponding values should be date strings in format YYYY/MM/DD.
+            and the corresponding values should be date strings in format YYYY-MM-DD.
             Required to perform the CAPEX analyses.
         opex_dates : dict, optional
             Dictionary containing the start and end dates for any OPEX cost
             DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-            and the corresponding values should be date strings in format YYYY/MM/DD.
+            and the corresponding values should be date strings in format YYYY-MM-DD.
             Required to perform the OPEX analyses.
         location : str, optional
             Geographic location of the infrastructure in the mine. The default is None.
@@ -1051,7 +1053,8 @@ class InfraCell():
         if(self.infra_type == "charging station"):
             
             # Construction costs
-            if("construction schedule" in self.data.keys()):
+            if("construction schedule" in self.data.keys() and
+               str(self.data.get("construction costs", "True")).strip().lower() != "false"):
                 self.construction_costs = self.charging_station_analysis()
                 self.add_variable("charging station costs", self.construction_costs, self.variables)
                 self.add_variable("charging station costs", self.construction_costs, self.capex_variables)
@@ -1096,12 +1099,12 @@ class DigitalSolutionsCell():
     capex_dates : dict, optional
         Dictionary containing the start and end dates for any CAPEX cost
         DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-        and the corresponding values should be date strings in format YYYY/MM/DD.
+        and the corresponding values should be date strings in format YYYY-MM-DD.
         Required to perform the CAPEX analyses.
     opex_dates : dict, optional
         Dictionary containing the start and end dates for any OPEX cost
         DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-        and the corresponding values should be date strings in format YYYY/MM/DD.
+        and the corresponding values should be date strings in format YYYY-MM-DD.
         Required to perform the OPEX analyses.
     location : str, optional
         Geographic location of the fleet in the mine. The default is None.
@@ -1230,12 +1233,12 @@ class DigitalSolutionsCell():
         capex_dates : dict, optional
             Dictionary containing the start and end dates for any CAPEX cost
             DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-            and the corresponding values should be date strings in format YYYY/MM/DD.
+            and the corresponding values should be date strings in format YYYY-MM-DD.
             Required to perform the CAPEX analyses.
         opex_dates : dict, optional
             Dictionary containing the start and end dates for any OPEX cost
             DataFrames in the TCO analysis. The keys are 'start date' and 'end date'
-            and the corresponding values should be date strings in format YYYY/MM/DD.
+            and the corresponding values should be date strings in format YYYY-MM-DD.
             Required to perform the OPEX analyses.
         location : str, optional
             Geographic location of the fleet in the mine. The default is None.
@@ -1579,7 +1582,7 @@ def objects_annual(objects_list, var_name, col_name, div=1.0, agg='sum', verbose
         except KeyError as e:
             
             if(verbose):
-                print(f"Error: {var_name} variable in {obj.info}: {e}")
+                print(f"Error: {var_name} variable in {obj.info}: {e}", file=sys.stderr)
             
             pass 
     
@@ -1587,7 +1590,7 @@ def objects_annual(objects_list, var_name, col_name, div=1.0, agg='sum', verbose
     if not obj_list:
         
         if(verbose):
-            print(f"No {var_name} variables in object list")
+            print(f"No {var_name} variables in object list", file=sys.stderr)
         
     else:
         obj_summary = pd.concat(obj_list, axis=1)
@@ -1793,20 +1796,21 @@ def annual_cashflow_summary(fleet_objects=None, infra_objects=None,
         # Summary of costs for each fleet cost variable
         fleet_opex_vars = fleet_objects[0].opex_variables.keys()
         
+        fleet_label = "fleet"
         for var in fleet_opex_vars:
-            opex_vars[f"{fleet.info} {var}"] = objects_annual(fleet_objects, 
-                                                              var, 
-                                                              var, 
-                                                              div=1.0, 
+            opex_vars[f"{fleet_label} {var}"] = objects_annual(fleet_objects,
+                                                              var,
+                                                              var,
+                                                              div=1.0,
                                                               verbose=True)
-        
+
         fleet_capex_vars = fleet_objects[0].capex_variables.keys()
-        
+
         for var in fleet_capex_vars:
-            capex_vars[f"{fleet.info} {var}"] = objects_annual(fleet_objects, 
-                                                               var, 
-                                                               var, 
-                                                               div=1.0, 
+            capex_vars[f"{fleet_label} {var}"] = objects_annual(fleet_objects,
+                                                               var,
+                                                               var,
+                                                               div=1.0,
                                                                verbose=True)
     
     # Summary of infrastructure costs
@@ -2139,7 +2143,7 @@ def stacked_bar_chart(ax, data, x_label=None,
             test.append( data['data'][ix].index.equals(data['data'][ix+1].index) )
             
         if(False in test):
-            print("Error: indices for all time series do not match")
+            print("Error: indices for all time series do not match", file=sys.stderr)
             return
         
         x_series = data['x']
