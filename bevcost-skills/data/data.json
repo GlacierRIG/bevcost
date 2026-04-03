@@ -1,0 +1,100 @@
+{
+  "vehicles":
+    [
+      {
+        "model": "LHD 1",
+        "make": "BEV Original Equipment Manufacturer",
+        "type": "LHD",
+        "powertrain": "BEV",
+        "daily_operating_hours": 15.0,
+        "tonnes per bucket": 9.0,
+        "battery capacity": 250,
+        "usable battery capacity": 0.85,
+        "energy consumption": 50,
+        "charging time": 4,
+        "charging power": 250,
+        "evse model": "LHD 1 Charger",
+        "BaaS monthly rate": 12000,
+        "unit price": 1500000,
+        "maintenance costs": {
+                                "Machine Hours": [2500, 5000, 7500, 10000],
+                                "Major Components": [10000, 20000, 25000, 30000]
+                             }
+      },
+      {
+        "model": "LHD 2",
+        "make": "BEV Original Equipment Manufacturer",
+        "type": "LHD",
+        "powertrain": "BEV",
+        "daily_operating_hours": 16.0,
+        "tonnes per bucket": 18.0,
+        "battery capacity": 500,
+        "usable battery capacity": 0.85,
+        "energy consumption": 90,
+        "charging time": 4,
+        "charging power": 250,
+        "evse model": "LHD 2 Charger",
+        "BaaS monthly rate": 18000,
+        "unit price": 2000000,
+        "maintenance costs": {
+                                "Machine Hours": [2500, 5000, 7500, 10000],
+                                "Major Components": [10000, 20000, 25000, 30000]
+                             }
+      }
+    ],
+  "support equipment":
+    [
+      {
+        "evse type": "charger",
+        "model": "LHD 1 Charger",
+        "charge current": 350,
+        "cooling cube power": 40,
+        "efficiency": 0.98,
+        "power factor": 0.98,
+        "current derating": 0.85,
+        "BaaS charger monthly rate": 10000,
+        "unit price": 40000
+      },
+      {
+        "evse type": "charger",
+        "model": "LHD 2 Charger",
+        "charge current": 400,
+        "cooling cube power": 80,
+        "efficiency": 0.98,
+        "power factor": 0.98,
+        "current derating": 0.85,
+        "BaaS charger monthly rate": 15000,
+        "unit price": 600000
+      },
+      {
+        "evse type": "charger",
+        "model": "Workshop Charger",
+        "BaaS charger monthly rate": 5000,
+        "unit price": 150000
+      },
+      {
+        "evse type": "transformer",
+        "model": "Substation 1",
+        "unit price": 500000
+      }
+    ],
+  "infrastructure":
+    [
+      {
+        "infrastructure type": "charging station",
+        "volume (for 2 batteries)": 1000,
+        "development rate ($/m)": 180,
+        "development cost": 200000,
+        "cable pull ($/m)": 75
+      }
+    ],
+  "digital solutions":
+    [
+      {
+        "infrastructure type": "software",
+        "solution name": "Fleet Management System (FMS)",
+        "unit price": 1000000,
+        "subscription price": 250000
+      }
+    ]
+}

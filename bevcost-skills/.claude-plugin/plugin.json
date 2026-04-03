@@ -1,0 +1,9 @@
+{
+  "name": "bevcost",
+  "version": "1.0.0",
+  "description": "BEV mining fleet Total Cost of Ownership analysis — analyze fleet costs, infrastructure, digital solutions, and workforce through conversational skills",
+  "author": {
+    "name": "Costmine"
+  },
+  "skills": "./skills/"
+}
