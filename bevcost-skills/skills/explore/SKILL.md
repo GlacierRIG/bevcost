@@ -37,9 +37,16 @@ from bevcost.TCOmodel import annual_cashflow_summary, stacked_bar_chart, spaghet
 from bevcost.TCOmodel import list_to_dict, npv_calc, financial_analysis, tco_summary
 
 # ... your analysis code ...
+
+# After writing any output file:
+# print(f"FILE:{output_path}", file=sys.stderr)
 ```
 
 Only list dependencies the script actually imports — no extras. The `# /// script` block tells `uv` what to install automatically.
+
+### Handle generated files
+
+If your script writes **any** files for the user (charts, spreadsheets, CSVs, etc.), it **MUST emit `FILE:<path>` on stderr** for each file (see `custom-scripts.md`). After running the script, check stderr for `FILE:` lines. If any are present, you MUST read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/file-handling.md` using the Read tool and follow its instructions exactly. Do NOT improvise file display, saving, or opening.
 
 ## Complete API Reference
 

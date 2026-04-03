@@ -38,7 +38,9 @@ Analyze costs for a single BEV fleet — vehicles, energy, maintenance, and Batt
 
 > What are the maintenance costs for 6 LHD 1 vehicles over the project life?
 
-**What you get:** Total CAPEX and OPEX breakdown, energy consumption (kWh), energy costs, maintenance costs per vehicle, BaaS subscription costs, GHG emissions, and annual cost summaries. Optionally generates OPEX/CAPEX breakdown charts.
+> Generate an Excel report for the LHD 1 fleet with $0.08/kWh energy
+
+**What you get:** Total CAPEX and OPEX breakdown, energy consumption (kWh), energy costs, maintenance costs per vehicle, BaaS subscription costs, GHG emissions, and annual cost summaries. Can generate charts, Excel spreadsheets, or Word reports with embedded visuals.
 
 ---
 
@@ -58,7 +60,9 @@ Analyze costs for BEV charging infrastructure — stations, equipment, construct
 
 > What are the infrastructure CAPEX and OPEX for all three charging stations?
 
-**What you get:** Equipment purchase costs (EVSE), construction and development costs, cable installation costs, BaaS equipment fees, and CAPEX/OPEX timelines with annual breakdowns.
+> Export the level 1 charging station costs to Excel
+
+**What you get:** Equipment purchase costs (EVSE), construction and development costs, cable installation costs, BaaS equipment fees, and CAPEX/OPEX timelines with annual breakdowns. Can export to Excel or Word with charts.
 
 ---
 
@@ -78,7 +82,9 @@ Run a complete mine-wide analysis covering every cost domain: fleet vehicles, ch
 
 > What does the full mine electrification cost with 20 level 1 operators?
 
-**What you get:** Grand totals across all domains, domain-by-domain breakdown (fleet, infrastructure, digital, workforce), year-by-year cost trends, total energy consumption and GHG emissions, and a complete financial picture from 2022 to 2030.
+> Run a full TCO and generate a Word report with charts
+
+**What you get:** Grand totals across all domains, domain-by-domain breakdown (fleet, infrastructure, digital, workforce), year-by-year cost trends, total energy consumption and GHG emissions, and a complete financial picture from 2022 to 2030. Can generate Excel workbooks or Word reports with embedded charts.
 
 **Default scenario includes:**
 
@@ -105,7 +111,9 @@ Compare multiple configurations side by side to support decision-making.
 
 > Compare costs with and without construction costs at the level 1 station
 
-**What you get:** A comparison table showing Total CAPEX, Total OPEX, and Total TCO for each scenario. Highlights which scenario is most cost-effective and where the differences come from. Optionally generates comparison charts.
+> Compare baseline vs expanded fleet and export the results to Excel
+
+**What you get:** A comparison table showing Total CAPEX, Total OPEX, and Total TCO for each scenario. Highlights which scenario is most cost-effective and where the differences come from. Can generate comparison charts, Excel reports, or Word documents.
 
 **Tips:**
 
@@ -139,7 +147,7 @@ Generate charts and visualizations from TCO analysis results.
 - **Energy Consumption** — bar chart of annual energy use per fleet
 - **Maintenance Costs** — bar chart of annual maintenance costs per fleet
 
-**What you get:** PNG chart images displayed directly in the conversation. Charts use the full analysis dataset, so you can generate visuals for any scenario or parameter configuration.
+**What you get:** PNG chart images displayed directly in the conversation, or embedded in Excel/Word reports. Charts use the full analysis dataset, so you can generate visuals for any scenario or parameter configuration.
 
 ---
 
@@ -159,7 +167,9 @@ Go beyond the pre-built skills with freeform analysis. Claude generates custom P
 
 > What's the sensitivity of total OPEX to energy price changes?
 
-**What you get:** Custom analysis results tailored to your question. Claude writes and executes Python code using the bevcost library (FleetCell, InfraCell, DigitalSolutionsCell, WorkforceCell) to compute exactly what you need.
+> Build an Excel workbook with NPV sensitivity analysis across discount rates from 1% to 10%
+
+**What you get:** Custom analysis results tailored to your question. Claude writes and executes Python code using the bevcost library (FleetCell, InfraCell, DigitalSolutionsCell, WorkforceCell) to compute exactly what you need. Results can be exported to Excel, Word, or any other document format.
 
 ---
 
@@ -206,6 +216,24 @@ Understand the operational cost trajectory before committing.
 > Now compare the expansion against switching to 4 LHD 2 vehicles instead
 
 Evaluate whether a larger vehicle model is more cost-effective than adding more smaller ones.
+
+---
+
+### Report Generation
+
+Producing deliverables for stakeholders:
+
+> Run a full TCO and generate an Excel workbook with all the cost breakdowns
+
+Get a multi-sheet spreadsheet with summary, annual breakdown, monthly details, and energy data.
+
+> Now create a Word report with the OPEX and CAPEX charts embedded
+
+Generate a formatted document with charts inline, ready to share.
+
+> Compare baseline vs expanded fleet and export the comparison to Excel with charts
+
+Side-by-side scenario analysis in a single workbook with visual summaries.
 
 ---
 

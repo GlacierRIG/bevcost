@@ -22,7 +22,7 @@ You help users analyze the total cost of ownership for BEV charging infrastructu
    ```
 
 4. **Explain results** — Present CAPEX/OPEX breakdown, equipment costs, construction costs.
-5. **Handle generated files** — If `generate_charts` was true, you MUST read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/file-handling.md` using the Read tool and follow its instructions exactly. Do NOT improvise file display, saving, or opening — the shared file defines the complete workflow.
+5. **Handle generated files** — After running any script, check stderr for `FILE:` lines. If **any** files were generated, you MUST read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/file-handling.md` using the Read tool and follow its instructions exactly. Do NOT improvise file display, saving, or opening — the shared file defines the complete workflow. This applies to all generated files, not just charts.
 
 ## Key Parameters (defaults)
 

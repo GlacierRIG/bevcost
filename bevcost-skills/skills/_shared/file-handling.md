@@ -1,6 +1,16 @@
 # Generated File Handling — Display, Save, and Open
 
-Use these instructions whenever a bevcost script generates user-facing files. Generated files are indicated by `FILE:` lines on stderr.
+## Universal Rule
+
+This workflow applies to **every bevcost skill and every script that produces user-facing files** — bundled analysis scripts, custom scripts (per `custom-scripts.md`), and ad hoc scripts written on the fly (e.g., Excel/CSV export scripts).
+
+- **Any script that writes files for the user MUST emit `FILE:<path>` on stderr** for each generated file.
+- After running **any** script, **always check stderr for `FILE:` lines**. If present, follow the workflow below.
+- This is **not gated on `generate_charts`**. It applies to charts, spreadsheets, CSVs, PDFs, and any other output files.
+
+## Detecting generated files
+
+Generated files are indicated by `FILE:` lines on stderr.
 
 ## 1. Display files
 
