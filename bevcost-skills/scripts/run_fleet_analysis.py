@@ -177,7 +177,7 @@ def main():
             fig.tight_layout()
             fig.savefig(chart_path, dpi=150, bbox_inches='tight')
             plt.close(fig)
-            print(f'CHART:{chart_path}', file=sys.stderr)
+            print(f'FILE:{chart_path}', file=sys.stderr)
 
         # Stacked bar chart of annual CAPEX breakdown (one per entry)
         for entry_name, costs in capex_objects.items():
@@ -203,7 +203,7 @@ def main():
             fig.tight_layout()
             fig.savefig(chart_path, dpi=150, bbox_inches='tight')
             plt.close(fig)
-            print(f'CHART:{chart_path}', file=sys.stderr)
+            print(f'FILE:{chart_path}', file=sys.stderr)
 
     json.dump(results, sys.stdout, default=str)
 

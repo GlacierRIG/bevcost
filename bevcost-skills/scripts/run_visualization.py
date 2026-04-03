@@ -172,7 +172,7 @@ def main():
         fig.savefig(path, dpi=150, bbox_inches='tight')
         plt.close(fig)
         chart_paths.append(path)
-        print(f'CHART:{path}', file=sys.stderr)
+        print(f'FILE:{path}', file=sys.stderr)
 
     if 'capex_breakdown' in requested_charts:
         fig, ax = plt.subplots(figsize=(12, 6))
@@ -191,7 +191,7 @@ def main():
         fig.savefig(path, dpi=150, bbox_inches='tight')
         plt.close(fig)
         chart_paths.append(path)
-        print(f'CHART:{path}', file=sys.stderr)
+        print(f'FILE:{path}', file=sys.stderr)
 
     if 'opex_trends' in requested_charts and opex_objects:
         # Spaghetti line plot of OPEX categories
@@ -215,7 +215,7 @@ def main():
             fig.savefig(path, dpi=150, bbox_inches='tight')
             plt.close(fig)
             chart_paths.append(path)
-            print(f'CHART:{path}', file=sys.stderr)
+            print(f'FILE:{path}', file=sys.stderr)
 
     if 'energy' in requested_charts and fleet_stock:
         fig, ax = plt.subplots(figsize=(10, 6))
@@ -231,7 +231,7 @@ def main():
         fig.savefig(path, dpi=150, bbox_inches='tight')
         plt.close(fig)
         chart_paths.append(path)
-        print(f'CHART:{path}', file=sys.stderr)
+        print(f'FILE:{path}', file=sys.stderr)
 
     if 'maintenance' in requested_charts and fleet_stock:
         fig, ax = plt.subplots(figsize=(10, 6))
@@ -255,7 +255,7 @@ def main():
         fig.savefig(path, dpi=150, bbox_inches='tight')
         plt.close(fig)
         chart_paths.append(path)
-        print(f'CHART:{path}', file=sys.stderr)
+        print(f'FILE:{path}', file=sys.stderr)
 
     json.dump({'charts_generated': chart_paths}, sys.stdout)
 
