@@ -80,6 +80,8 @@ Tell the user these are the main things they can tweak:
 
 Only include fields the user wants to change. Unspecified fields use defaults.
 
+6. **Excel export** — If the user requests Excel export, write a custom script following `${CLAUDE_PLUGIN_ROOT}/skills/_shared/excel-export.md`. Use the analysis JSON results as input data. Read the shared doc with the Read tool before generating the script.
+
 ## Available Fleets in Default Data
 
 - **Fleet 0**: LHD 1 — 4 vehicles, 8 batteries, level 1 location

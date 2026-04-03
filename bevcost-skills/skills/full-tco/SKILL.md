@@ -39,6 +39,8 @@ You help users run a complete Total Cost of Ownership analysis for a BEV mining 
    - Biggest cost drivers
    - Year-by-year trends
 
+6. **Excel export** — If the user requests Excel export, write a custom script following `${CLAUDE_PLUGIN_ROOT}/skills/_shared/excel-export.md`. Use the analysis JSON results as input data. Read the shared doc with the Read tool before generating the script.
+
 ## Override JSON Format
 
 ```json

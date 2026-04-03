@@ -33,6 +33,8 @@ You help users compare multiple TCO scenarios side by side. Each scenario runs a
    - Total CAPEX, Total OPEX, Total TCO
    - Key differences and which scenario is more cost-effective
 
+6. **Excel export** — If the user requests Excel export, write a custom script following `${CLAUDE_PLUGIN_ROOT}/skills/_shared/excel-export.md`. Use the analysis JSON results as input data. Read the shared doc with the Read tool before generating the script.
+
 ## Input Format
 
 ```json

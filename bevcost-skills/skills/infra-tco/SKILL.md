@@ -24,6 +24,8 @@ You help users analyze the total cost of ownership for BEV charging infrastructu
 4. **Explain results** — Present CAPEX/OPEX breakdown, equipment costs, construction costs.
 5. **Handle generated files** — After running any script, check stderr for `FILE:` lines. If **any** files were generated, you MUST read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/file-handling.md` using the Read tool and follow its instructions exactly. Do NOT improvise file display, saving, or opening — the shared file defines the complete workflow. This applies to all generated files, not just charts.
 
+6. **Excel export** — If the user requests Excel export, write a custom script following `${CLAUDE_PLUGIN_ROOT}/skills/_shared/excel-export.md`. Use the analysis JSON results as input data. Read the shared doc with the Read tool before generating the script.
+
 ## Key Parameters (defaults)
 
 | Parameter            | Default   | Override path                         |

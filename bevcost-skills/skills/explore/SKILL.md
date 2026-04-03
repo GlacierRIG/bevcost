@@ -48,6 +48,10 @@ Only list dependencies the script actually imports — no extras. The `# /// scr
 
 If your script writes **any** files for the user (charts, spreadsheets, CSVs, etc.), it **MUST emit `FILE:<path>` on stderr** for each file (see `custom-scripts.md`). After running the script, check stderr for `FILE:` lines. If any are present, you MUST read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/file-handling.md` using the Read tool and follow its instructions exactly. Do NOT improvise file display, saving, or opening.
 
+## Excel Export
+
+If the user requests Excel export, follow the conventions in `${CLAUDE_PLUGIN_ROOT}/skills/_shared/excel-export.md`. Read the shared doc with the Read tool before generating the script. Use `openpyxl` with native Excel charts instead of embedding PNG images.
+
 ## Complete API Reference
 
 ### Classes
