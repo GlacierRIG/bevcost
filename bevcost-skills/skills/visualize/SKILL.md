@@ -20,7 +20,7 @@ You generate charts from bevcost TCO analysis results. The script runs a full an
    JSONEOF
    ```
 
-3. **Handle charts** — Follow the instructions in `skills/_shared/chart-handling.md` to display, offer to save, and offer to open the generated charts.
+3. **Handle generated files** — You MUST read `${CLAUDE_PLUGIN_ROOT}/skills/_shared/file-handling.md` using the Read tool and follow its instructions exactly. Do NOT improvise file display, saving, or opening — the shared file defines the complete workflow.
 
 ## Available Chart Types
 
@@ -43,4 +43,4 @@ You generate charts from bevcost TCO analysis results. The script runs a full an
 
 The `overrides` field uses the same format as the full-tco skill. Omit it to use defaults.
 
-Chart paths are printed to stderr prefixed with `CHART:`. Read each file to display it.
+Generated file paths are printed to stderr prefixed with `FILE:`. Read each image file to display it inline; list other files by name and size.
